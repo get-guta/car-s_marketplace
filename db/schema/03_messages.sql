@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS messages CASCADE;
 CREATE TABLE messages (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    cars_id INTEGER REFERENCES cars(car_id) ON DELETE CASCADE,
+    cars_id INTEGER REFERENCES cars(id) ON DELETE CASCADE,
     date_created TIMESTAMP NOT NULL DEFAULT NOW(),
     message_text TEXT NOT NULL,
     receiver_id INTEGER REFERENCES users(id) ON DELETE CASCADE
