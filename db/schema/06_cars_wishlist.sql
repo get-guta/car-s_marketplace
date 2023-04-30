@@ -2,6 +2,6 @@ DROP TABLE IF EXISTS car_wishlist CASCADE;
 CREATE TABLE car_wishlist(
     id SERIAL PRIMARY KEY NOT NULL,
     wishlist_id INT REFERENCES wishlist(id) ON DELETE CASCADE,
-    car_id INT REFERENCES car(id) ON DELETE CASCADE
+    cars_id INT REFERENCES cars(id) ON DELETE CASCADE
 );
 

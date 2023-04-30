@@ -8,5 +8,5 @@ CREATE TABLE cars (
     image VARCHAR(255),
     date_created TIMESTAMP NOT NULL DEFAULT NOW(),
     is_sold BOOLEAN NOT NULL DEFAULT false,
-    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+    users_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
