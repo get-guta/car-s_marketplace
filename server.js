@@ -1,3 +1,5 @@
+/* server.js */
+
 // load .env data into process.env
 require('dotenv').config();
 
@@ -32,12 +34,20 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 
+const homeRoutes = require('./routes/home');
+const newListingRouter = require('./routes/new_Listing');
+
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
+app.use('/home', homeRoutes);
+app.use('/new_listing', newListingRouter);
+
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -45,9 +55,21 @@ app.use('/users', usersRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  //res.render('index');
+  res.redirect('/home');
 });
+
+
+app.get('/new_listing', (req, res) => {
+  res.render('new_listing');
+});
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+
+
+
