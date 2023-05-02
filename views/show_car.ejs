@@ -1,0 +1,31 @@
+<!-- views/show_Car.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Car Details</title>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+	<!-- Header section -->
+	<header>
+  		<h1>Car Details</h1>
+	</header>
+<!-- Car Details section -->
+<section class="car-details">
+	<h2><%= car.make %> <%= car.model %> (<%= car.year %>)</h2>
+	<ul>
+		<li><strong>Price:</strong> $<%= car.price %></li>
+		<li><strong>Mileage:</strong> <%= car.mileage %> miles</li>
+		<li><strong>Color:</strong> <%= car.color %></li>
+		<li><strong>Transmission:</strong> <%= car.transmission %></li>
+		<li><strong>Drivetrain:</strong> <%= car.drivetrain %></li>
+		<li><strong>Engine:</strong> <%= car.engine %></li>
+	</ul>
+</section>
+
+<!-- Footer section -->
+<footer>
+	<a href="/cars">Back to Cars List</a>
+</footer>
+</body>
+</html>
