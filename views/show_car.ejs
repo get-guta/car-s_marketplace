@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>Car Details</title>
-	<link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" href="/styles/show_car.css" />
 </head>
 <body>
 	<!-- Header section -->
@@ -27,5 +27,21 @@
 <footer>
 	<a href="/cars">Back to Cars List</a>
 </footer>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Car Details</title>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+	<h1><%= car.make %> <%= car.model %></h1>
+	<p>Year: <%= car.year %></p>
+	<p>Color: <%= car.color %></p>
+	<p>Price: $<%= car.price %></p>
+	<img src="<%= car.image %>" alt="<%= car.make %> <%= car.model %>">
 </body>
 </html>

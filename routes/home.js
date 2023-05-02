@@ -1,9 +1,9 @@
 
-const express = require('express');
-const router  = express.Router();
+const routes = require('./new_Listing');
 
-router.get('/', (req, res) => {
+routes.get('/', (req, res) => {
   res.render('home');
 });
 
-module.exports = router;
+module.exports = routes;
+

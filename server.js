@@ -36,6 +36,8 @@ const usersRoutes = require('./routes/users');
 
 const homeRoutes = require('./routes/home');
 const newListingRouter = require('./routes/new_Listing');
+const showCarRouter = require('./routes/show_car');
+
 
 
 // Mount all resource routes
@@ -46,6 +48,7 @@ app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/home', homeRoutes);
 app.use('/new_listing', newListingRouter);
+app.use('/show_car', showCarRouter);
 
 
 // Note: mount other resources here, using the same pattern above
@@ -59,17 +62,16 @@ app.get('/', (req, res) => {
   res.redirect('/home');
 });
 
-
 app.get('/new_listing', (req, res) => {
-  res.render('new_listing');
+  res.render('/routes/new_listing');
 });
 
+
+app.get('/show_car/:id', (req, res) => {
+  res.render('show_car');
+});
 
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-
-
-
-
