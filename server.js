@@ -34,11 +34,11 @@ app.use(express.static('public'));
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 const userApiRoutes = require('./routes/users-api');
 const carApiRoutes = require('./routes/cars-api');
-// const priceApiRoutes = require('./routes/price-api');
+const priceApiRoutes = require('./routes/price-api');
 
 app.use('/api/users', userApiRoutes);
 app.use('/api/cars', carApiRoutes);
-// app.use('/api/price-filter', priceApiRoutes);
+app.use('/api/price-filter', priceApiRoutes);
 
 //page routes
 const carsRoutes = require('./routes/cars');
