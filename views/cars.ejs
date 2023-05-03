@@ -12,7 +12,9 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/cars.js"></script>
 </head>
@@ -20,11 +22,13 @@
 <body>
   <h1>Cars</h1>
   <form id="price-filter-form">
+    <label>Price</label>
     <input type="number" name="min_price" min="0" placeholder="minimum" />
     <input type="number" name="max_price" min="0" placeholder="maximum" />
     <button id="price-filter" type="submit">Apply</button>
   </form>
   <div id="cars"></div>
+  <input type="hidden" id ="userid" name ="userid" value="<%= userinfo.id%>"/>
 
 </body>
 
