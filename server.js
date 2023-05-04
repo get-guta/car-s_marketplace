@@ -38,14 +38,12 @@ app.use(express.static('public'));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 
-const homeRoutes = require('./routes/home');
 const newListingRouter = require('./routes/new_Listing');
 const showCarRouter = require('./routes/show_car');
 
-
-
 // Mount all resource routes
 // responds data
+
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 const userApiRoutes = require('./routes/users-api');
 const carApiRoutes = require('./routes/cars-api');
@@ -58,7 +56,6 @@ app.use('/users', usersRoutes);
 app.use('/cars', carsRoutes);
 app.use('/new_listing', newListingRouter);
 app.use('/show_car', showCarRouter);
-
 // Note: mount other resources here, using the same pattern above
 
 app.use('/api/cars', carApiRoutes);
@@ -77,6 +74,11 @@ app.use('/login', loginRoutes);
 app.get('/', (req, res) => {
   //res.render('index');
   res.redirect('/cars');
+
+});
+
+app.get('/new_listing', (req, res) => {
+  res.render('new_listing');
   const user_id = req.session.user_id;
   db.query('SELECT * FROM users WHERE id = $1', [user_id])
   .then(data => {
@@ -87,7 +89,6 @@ app.get('/', (req, res) => {
   .catch(error => {
     console.log(error.message);
   })
-
 });
 
 app.get('/new_listing', (req, res) => {
@@ -101,3 +102,7 @@ app.get('/show_car/:id', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+
+
+
