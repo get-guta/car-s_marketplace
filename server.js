@@ -1,3 +1,5 @@
+/* server.js */
+
 // load .env data into process.env
 require('dotenv').config();
 
@@ -36,6 +38,9 @@ app.use(express.static('public'));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 
+const homeRoutes = require('./routes/home');
+const newListingRouter = require('./routes/new_Listing');
+
 // Mount all resource routes
 // responds data
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -46,6 +51,9 @@ const wishlistApiRoutes = require('./routes/wishlist-api');
 
 
 app.use('/api/users', userApiRoutes);
+app.use('/users', usersRoutes);
+app.use('/cars', carsRoutes);
+app.use('/new_listing', newListingRouter);
 app.use('/api/cars', carApiRoutes);
 app.use('/api/price-filter', priceApiRoutes);
 app.use('/api/wishlist', wishlistApiRoutes);
@@ -60,6 +68,12 @@ app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
 
 app.get('/', (req, res) => {
+  //res.render('index');
+  res.redirect('/cars');
+});
+
+app.get('/new_listing', (req, res) => {
+  res.render('new_listing');
   const user_id = req.session.user_id;
   db.query('SELECT * FROM users WHERE id = $1', [user_id])
   .then(data => {
@@ -70,9 +84,12 @@ app.get('/', (req, res) => {
   .catch(error => {
     console.log(error.message);
   })
-
 });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+
+
+
