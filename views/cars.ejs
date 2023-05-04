@@ -8,27 +8,53 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+
+
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/cars.js"></script>
+  <style>a { color:aliceblue; } /* CSS link color */</style>
 </head>
 
 <body>
-  <h1>Cars</h1>
-  <form id="price-filter-form">
-    <label>Price</label>
-    <input type="number" name="min_price" min="0" placeholder="minimum" />
-    <input type="number" name="max_price" min="0" placeholder="maximum" />
-    <button id="price-filter" type="submit">Apply</button>
-  </form>
-  <div id="cars"></div>
-  <input type="hidden" id ="userid" name ="userid" value="<%= userinfo.id%>"/>
+  <nav>
+    <div class=nav-left>Carket</div>
+    <div  class=nav-right>
+      <a href="localhost:8080/">Home</a>
+      <a href="localhost:8080/cars">Car Listings</a>
+      <a href="localhost:8080/new">New Listings</a>
+      <a href="localhost:8080/wishlist">Wishlist</a>
+    </div>
+  </nav>
+
+  <div>
+
+    <header class="mainheader">
+      <div class="headerimage">
+          <img src="/assets/headerphoto.JPEG">
+      </div>
+      <div class="headertext">
+        <h2>Looking to buy or sell a car?</h2>
+        <h3>We got you covered!</h3>
+      </div>
+    </header>
+
+    <form id="price-filter-form">
+      <input class = "min" type="number" name="min_price" min="0" placeholder="Enter minimum price..." />
+      <input class = "max" type="number" name="max_price" min="0" placeholder="Enter maximum price..." />
+      <button id="price-filter" type="submit">Apply</button>
+    </form>
+    <div id="cars"></div>
+
+  </div>
+
 
 </body>
 
