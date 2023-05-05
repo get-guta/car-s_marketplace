@@ -16,4 +16,17 @@ const AddToWishlist = (user_id, car_id) => {
     }
   })
 };
-module.exports = { AddToWishlist };
+
+const filterFavouriteCars = (userId)  =>{
+  const query = {
+    text: 'SELECT * FROM wishlist JOIN cars ON wishlist.cars_id = cars.id WHERE wishlist.users_id = $1',
+    values: [userId]
+  };
+  return db.query(query)
+    .then(data => {
+      console.log(data.rows);
+      return data.rows;
+    });
+};
+
+module.exports = { AddToWishlist, filterFavouriteCars };

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/card.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,16 +20,160 @@
 </head>
 
 <body>
-  <h1>Cars</h1>
-  <form id="price-filter-form">
-    <label>Price</label>
-    <input type="number" name="min_price" min="0" placeholder="minimum" />
-    <input type="number" name="max_price" min="0" placeholder="maximum" />
-    <button id="price-filter" type="submit">Apply</button>
-  </form>
-  <div id="cars"></div>
-  <input type="hidden" id ="userid" name ="userid" value="<%= userinfo.id%>"/>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Buy</a></li>
+        <li><a href="/new">Sell</a></li>
+        <li><button id ="wishlist">Wishlist</button></li>
+      </ul>
+    </nav>
+    <div class="header-content">
+      <div class="animated-text">
+        <h2>Looking to buy or sell a car? We got you covered!</h2>
+      </div>
+      <form id="price-filter-form">
+        <input class="min" type="number" id="min-price" name="min_price" min="0" placeholder="Enter minimum price..." />
+        <input class="max" type="number" id="max-price" name="max_price" min="0" placeholder="Enter maximum price..." />
+        <button id="apply-price-filter" type="submit">Apply</button>
+      </form>
+    </div>
+  </header>
 
+  <main>
+    <div id="cars"></div>
+    <input type="hidden" id ="userid" name ="userid" value="<%= userinfo.id%>"/>
+
+  </main>
+
+  <footer>
+    &copy; 2023 Car Listings. All rights reserved.
+  </footer>
 </body>
 
-</html>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <!-- <link rel="stylesheet" href="/styles/main.css" /> -->
+    <!-- <link rel="stylesheet" href="/styles/card.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/cars.js"></script>
+    <style>
+      /* Add your CSS rules here */
+      body {
+        font-family: sans-serif;
+      }
+      header {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      header button {
+        background-color: white;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      header button:hover {
+        background-color: #f2f2f2;
+      }
+      #animated-text {
+        font-size: 2rem;
+        animation: color-change 1s infinite alternate;
+      }
+      @keyframes color-change {
+        from {
+          color: white;
+        }
+        to {
+          color: #ff3300;
+        }
+      }
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: space-between;
+        padding: 20px; */
+      }
+      /* .card {
+        width: calc(33.33% - 10px);
+        margin-bottom: 20px;
+      }
+      .card img {
+        object-fit: cover;
+        height: 200px;
+      }
+      .card-title {
+        margin-bottom: 10px;
+      }
+      .card-title .sold {
+        color: #ff3300;
+        font-size: 0.8rem;
+        margin-left: 10px;
+      } */
+      #price-filter-form {
+        margin-bottom: 20px;
+      }
+      #price-filter-form input {
+        margin-right: 10px;
+        padding: 5px;
+        font-size: 1rem;
+      }
+      #price-filter-form button {
+        background-color: #ff3300;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      #price-filter-form button:hover {
+        background-color: #cc2900;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Cars For Sale</h1>
+      <nav>
+        <a href="/admin">Admin</a>
+        <a href="/">Buy</a>
+        <a href="#" id="wishlist">Wishlist</a>
+      </nav>
+    </header>
+    <main>
+      <form id="price-filter-form">
+        <input class="min" type="number" id="min-price" name="min_price" min="0" placeholder="Enter minimum price..." />
+        <input class="max" type="number" id="max-price" name="max_price" min="0" placeholder="Enter maximum price..." />
+        <button id="apply-price-filter" type="submit">Apply</button>
+      </form>
+      <div id="cars"></div>
+    <input type="hidden" id ="userid" name ="userid" value="<%= userinfo.id%>"/>
+
+    </main>
+    <footer>
+      <p>&copy; 2023 Car Listings Inc.</p>
+    </footer>
+  </body>
+  </html>

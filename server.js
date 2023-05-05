@@ -43,21 +43,29 @@ const userApiRoutes = require('./routes/users-api');
 const carApiRoutes = require('./routes/cars-api');
 const priceApiRoutes = require('./routes/price-api');
 const wishlistApiRoutes = require('./routes/wishlist-api');
+const wishlistRoutes =  require('./routes/wishlist');
 
 
 app.use('/api/users', userApiRoutes);
 app.use('/api/cars', carApiRoutes);
 app.use('/api/price-filter', priceApiRoutes);
 app.use('/api/wishlist', wishlistApiRoutes);
+app.use('/wishlist', wishlistRoutes);
 
 //page routes
 const carsRoutes = require('./routes/cars');
 const usersRoutes = require('./routes/users');
 const loginRoutes = require('./routes/login');
+const adminRoutes = require('./routes/admin-cars');
+const updateRoutes = require('./routes/update-car');
+const deleteRoutes = require('./routes/delete-cars');
 
 app.use('/cars', carsRoutes);
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
+app.use('/admin', adminRoutes);
+app.use('/update/car', updateRoutes);
+app.use('/delete/car', deleteRoutes);
 
 app.get('/', (req, res) => {
   const user_id = req.session.user_id;

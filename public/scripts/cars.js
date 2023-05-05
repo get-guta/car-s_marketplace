@@ -35,7 +35,13 @@ function createCarCard(car) {
   }).addClass('img-fluid rounded-start').appendTo($col1);
   const $col2 = $('<div>').addClass('col-md-8').appendTo($row);
   const $cardBody = $('<div>').addClass('card-body').appendTo($col2);
-  $('<h5>').addClass('card-title').text(`${car.model} - ${car.price}`).appendTo($cardBody);
+  let price_model = `${car.model} - ${car.price} CAD`;
+
+  if(car.is_sold) {
+    $('<h5>').addClass('card-title').html(`${price_model} <span class="sold">(Sold)</span>`).appendTo($cardBody);
+  } else {
+    $('<h5>').addClass('card-title').text(price_model).appendTo($cardBody);
+  }
   $('<p>').addClass('card-text').text(car.description).appendTo($cardBody);
   $('<p>').addClass('card-text').append($('<small>').addClass('text-muted').text(timeElapsed)).appendTo($cardBody);
   const $favoriteIcon = $('<a>').attr('id', `favorite-${car.id}`);
@@ -109,4 +115,30 @@ $(document).ready(function () {
         }
       });
   });
+
+  //wishlist
+  $('#wishlist').on('click', (event) => {
+    // const user_id = req.session.user_id;
+    // console.log(user_id, userId);
+    $.ajax({
+      method: 'GET',
+      url: '/wishlist',
+      data: {
+        userId: userId
+      }
+    })
+      .done((response) => {
+        const $carsList = $('#cars');
+        $carsList.empty();
+
+        for (const car of response.cars) {
+          const $carCard = createCarCard(car);
+          $('#cars').append($carCard);
+
+        }
+      });
+  });
+
+
 });
+
