@@ -1,0 +1,60 @@
+body, div, form, input, select, p {
+  outline: none;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+//   .main-block {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     background: #fff;
+//     width:33%;
+//   }
+
+// .photo-container {
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   align-items: center;
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .photo-form {
+//   width: 400px;
+// }
+//   form {
+//     width: 100%;
+//     padding: 20px;
+//   }
+
+//   fieldset {
+//     border: none;
+//     border-top: 1px solid #8ebf42;
+//   }
+
+.listing-details {
+  display: flex;
+  flex-direction: column;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+}
+
+.listing-details div, input, label,textarea {
+  width: 100%;
+}
+
+.checkbox {
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: flex-start;
+  float:left;
+
+}
+ .checkbox input {
+  width: 5% ;
+ }

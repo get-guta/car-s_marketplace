@@ -1,5 +1,13 @@
 <!-- new_listing.ejs file -->
 
+<!-- App CSS -->
+<link rel="stylesheet" href="/styles/new_listing.css" type="text/css" />
+<link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+<link rel="stylesheet" href="/styles/header.css" type="text/css" />
+<link rel="stylesheet" href="/styles/main.css" type="text/css" />
+<link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,36 +16,63 @@
 	<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/listings">Car Listings</a></li>
-				<li><a href="/wishlist">Wishlist</a></li>
-			</ul>
-		</nav>
-	</header>
 
-	<main>
-		<h1>New Listing</h1>
-		<form action="/new_listing" method="post">
-			<label for="make">Make:</label>
-			<input type="text" id="make" name="make" required>
+  <nav>
+    <div class=nav-left>Carket</div>
+    <div  class=nav-right>
+      <a href="localhost:8080/">Home</a>
+      <a href="localhost:8080/cars">Car Listings</a>
+      <a href="localhost:8080/new">New Listings</a>
+      <a href="localhost:8080/wishlist">Wishlist</a>
+    </div>
+  </nav>
 
-			<label for="model">Model:</label>
-			<input type="text" id="model" name="model" required>
+  <header class="mainheader">
+    <div class="headerimage">
+        <!-- <img src="../assets/headerphoto.jpeg"> -->
+        <img src="https://www.w3schools.com/images/picture.jpg">
+    </div>
+    <div class="headertext">
+      <h2>Looking to buy or sell a car?</h2>
+      <h3>We got you covered!</h3>
+    </div>
+  </header>
 
-			<label for="year">Year:</label>
-			<input type="number" id="year" name="year" required>
-
-			<label for="price">Price:</label>
-			<input type="number" id="price" name="price" required>
-
-			<label for="image">Image URL:</label>
-			<input type="url" id="image" name="image" required>
-
+  <main class="main-block">
+  <form action="/new_listing" method="post">
+		<h1>Create a new Listing</h1>
+    <fieldset>
+      <legend><h3>Upload your Photo</h3></legend>
+        <!-- <div class="photo-container"> -->
+          <form class="photo-form">
+               <input name="file-upload-field" type="file" class="file-upload-field" value="">
+          </form>
+        <!-- </div> -->
+    </fieldset>
+    <fieldset>
+      <legend><h3>Listing Details</h3></legend>
+      <div class="listing-details">
+      <div>
+        <label for="title">Title:</label><br/>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div>
+        <label for="Description">Description:</label><br/>
+        <textarea id="Description" name="Description" required>
+        </textarea>
+      </div>
+      <div>
+        <label for="price">Price:</label><br/>
+        <input type="number" id="price" name="price" required>
+      </div>
+      <div class = "checkbox">
+        <input type="checkbox" id="checkbox" name="checkbox">
+        <label for="checkbox">New</label>
+      </div>
+      <br>
 			<input type="submit" value="Submit">
 		</form>
+  </div>
 	</main>
 
 	<footer>
