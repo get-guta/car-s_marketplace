@@ -17,6 +17,7 @@ app.set('view engine', 'ejs');
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 
+
 app.use(morgan('dev'));
 app.use(cookieSession({
   name: 'session',
@@ -33,6 +34,7 @@ app.use(
 );
 app.use(express.static('public'));
 
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 
@@ -44,6 +46,7 @@ const carApiRoutes = require('./routes/cars-api');
 const priceApiRoutes = require('./routes/price-api');
 const wishlistApiRoutes = require('./routes/wishlist-api');
 const wishlistRoutes =  require('./routes/wishlist');
+const newCarRoutes =  require('./routes/adnew-cars');
 
 
 app.use('/api/users', userApiRoutes);
@@ -51,6 +54,7 @@ app.use('/api/cars', carApiRoutes);
 app.use('/api/price-filter', priceApiRoutes);
 app.use('/api/wishlist', wishlistApiRoutes);
 app.use('/wishlist', wishlistRoutes);
+app.use('/cars/addnew',newCarRoutes);
 
 //page routes
 const carsRoutes = require('./routes/cars');
