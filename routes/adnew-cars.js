@@ -19,11 +19,14 @@ const upload = multer({ storage: storage });
 
 // handle POST requests to add a new car
 router.post('/', upload.single('image'), (req, res) => {
+  const user_id = req.session.user_id;
+  if (!user_id) {
+    res.send("Protected page! Please login to access the cars");
+  }
   const { model, price, description } = req.body;
 
   const image = req.file ? req.file.filename : '';
   const sold =false;
-  const user_id = req.session.user_id;
   console.log(model, description, price, sold, user_id, image);
   // add the new car to the database
   const query = 'INSERT INTO cars (model, price, description, image, is_sold, users_id) VALUES ($1, $2, $3, $4, $5, $6)';

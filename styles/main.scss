@@ -1,0 +1,98 @@
+/* Add your CSS rules here */
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: white;
+  margin-right: 20px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h3 {
+  margin-top: 10;
+}
+
+main {
+  height: 100vh;
+  /* Set the height of the main section */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  width: 100%;
+  margin: 20px;
+}
+
+#price-filter-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 30%;
+  margin-left: 50%;
+}
+
+#price-filter-form button,
+#price-filter-form input {
+  margin-right: 10px;
+  height: fit-content;
+}
+
+
+#cars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  /* Adjust the gap value as per your preference */
+  justify-items: center;
+  text-align: center;
+}
+
+.card {
+  border: none;
+}
+
+
+#cars::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+#cars>* {
+  display: inline-block;
+  width: 60%;
+  /* margin-right: 20px; */
+  margin-bottom: 20px;
+  word-break: break-all;
+  text-align: left;
+}
+
+.sold {
+  color: red;
+}
+
+.fav-message {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  // align-items: ;
+}
+
+// .fav-icon {
+//   align-self: flex-start;
+//   // float: left;
+// }
+
+// .reply-icon {
+//   align-self: flex-end;
+//   // float: right;
+// }

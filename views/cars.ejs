@@ -10,29 +10,29 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
-  <!-- <link rel="stylesheet" href="/styles/card.css" /> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="/vendor/jquery-3.0.0.js"></script>
+  <link rel="stylesheet" href="/styles/layout.css" />
   <script defer src="/scripts/cars.js"></script>
 
-  <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css">
-
-<!-- Bootstrap JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.min.js"></script>
-
+<!-- Fontawesome JavaScript -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+ integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+ crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <!-- Include Bootstrap CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
 <body>
   <header>
     <nav>
-      <a href="/admin">Admin</a>
-      <a href="/">Buy</a>
+      <a href="/">Home</a>
       <a href="#" id="wishlist">Wishlist</a>
+      <a href="/admin">Admin</a>
     </nav>
-    <h1>Discover your perfect ride with us</h1>
+    <span class="title-container">
+      <h1>Looking to buy or sell a car?</h2>
+        <h3>We got you covered!</h3>
+    </span>
+
   </header>
   <main>
     <form id="price-filter-form">
@@ -44,8 +44,13 @@
     <input type="hidden" id="userid" name="userid" value="<%= userinfo.id%>" />
   </main>
   <footer>
-    <p>&copy; 2023 Car Listings Inc.</p>
+    <p>&copy; 2023 Carket Project</p>
   </footer>
+   <!-- Include jQuery -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <!-- Include Bootstrap JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <!-- Your other JavaScript code here -->
 </body>
 
 </html>
