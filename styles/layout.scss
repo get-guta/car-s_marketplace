@@ -1,6 +1,21 @@
-// See: https://sass-lang.com/
-
-body,
-html {
-  margin: 0;
+body {
+  font-family: sans-serif;
+}
+header {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
 }
